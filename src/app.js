@@ -20,6 +20,11 @@ const typeDefs = gql`
   type Query {
     posts: [Post]
   }
+
+  
+  type Mutation {
+    addPost(title: String!): Post
+  }
 `;
 
 
@@ -27,6 +32,13 @@ const resolvers = {
     Query: {
       posts: () => posts,
     },
+    Mutation: {
+        createPost: (_, { title }) => {
+          AllPosts.push({ id: AllPosts.length + 1, tile });
+    
+          return AllPosts[AllPosts.length - 1];
+        },
+    }
   };
 
   const Server = new ApolloServer({
