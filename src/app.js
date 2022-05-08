@@ -33,7 +33,7 @@ const resolvers = {
       posts: () => posts,
     },
     Mutation: {
-        createPost: (_, { title }) => {
+        createPost: (parent, { title }) => {
           AllPosts.push({ id: AllPosts.length + 1, tile });
     
           return AllPosts[AllPosts.length - 1];
